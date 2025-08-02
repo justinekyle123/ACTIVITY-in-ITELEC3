@@ -25,7 +25,9 @@
 	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 </head>
 <body>
-		<div class="form-card">
+		<div class="form-card p-4 shadow pb-5">
+			<h1>Login</h1>
+
 			<form action="index.php" method="post">
 				<div class="mb-3">
 					<label class="form-label">Username</label>
@@ -44,7 +46,16 @@
 
 	<style type="text/css">
 		.form-card{
-			width: 50vw;
+			width: 20vw;
+		}
+		.btn{
+			width: 100%;
+		}
+		body{
+			height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
 	</style>
 
