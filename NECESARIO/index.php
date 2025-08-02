@@ -26,7 +26,7 @@
 </head>
 <body>
 		<div class="form-card p-4 shadow pb-5">
-			<h1>Login</h1>
+			<h1 class="text-center mb-4">Login</h1>
 
 			<form action="index.php" method="post">
 				<div class="mb-3">
@@ -47,6 +47,7 @@
 	<style type="text/css">
 		.form-card{
 			width: 20vw;
+			border-radius: 20px;
 		}
 		.btn{
 			width: 100%;
