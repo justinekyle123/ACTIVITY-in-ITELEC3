@@ -31,7 +31,7 @@ body {
         }
 
         .form-card a{
-            color: rgb(9, 10, 10);
+            color: black;
             text-decoration: none;
         }
         hr{
@@ -52,14 +52,14 @@ body {
         }
 
         .form-card .form-control:focus {
-            border-color: black;
+            border-color: black ;
             box-shadow: 0 0 3px black;
         }
 
         .form-card .btn {
             width: 100%;
-            background-color: black ;
-            color: white;
+            background-color:white ;
+            color: black;
             border: none;
             border-radius: 5px;
             padding: 12px 20px;
@@ -72,6 +72,7 @@ body {
         .form-card .btn:hover {
             background-color: black;
             transform:scale(1.01);
+            color: white;
         }
 
         .form-card .btn:focus {
