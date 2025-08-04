@@ -50,7 +50,9 @@
                 <span class="input-group-text"><i class="fas fa-lock"></i></span>
                 <input type="password" name="password" placeholder="Enter Password" class="form-control" required>
             </div>
-            <button type="submit" name="button" class="btn ">Login</button>
+            <button type="submit" name="button" class="btn mb-3">Login</button>
+            <p class="text-center">You dont have account yet? <a href="">Register</a></p>
+            <hr>
         </form>
     </div>
 

@@ -18,11 +18,24 @@ body {
             width: 400px;
             text-align: center;
             backdrop-filter: blur(25px);
+            
         }
 
         .form-card h1 {
             margin-bottom: 30px;
             color: #fff;
+        }
+
+        .form-card p{
+            color: white;
+        }
+
+        .form-card a{
+            color: rgb(9, 10, 10);
+            text-decoration: none;
+        }
+        hr{
+            color: white;
         }
 
         .alert-danger {
@@ -40,7 +53,7 @@ body {
 
         .form-card .form-control:focus {
             border-color: black;
-            box-shadow: 0 0 5px black;
+            box-shadow: 0 0 3px black;
         }
 
         .form-card .btn {
@@ -53,6 +66,7 @@ body {
             font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
+
         }
 
         .form-card .btn:hover {
