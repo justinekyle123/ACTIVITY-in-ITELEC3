@@ -50,7 +50,7 @@
                 <span class="input-group-text"><i class="fas fa-lock"></i></span>
                 <input type="password" name="password" placeholder="Enter Password" class="form-control" required>
             </div>
-            <button type="submit" name="button" class="btn">Login</button>
+            <button type="submit" name="button" class="btn ">Login</button>
         </form>
     </div>
 
