@@ -26,13 +26,11 @@ body {
             color: #4B4B4B;
         }
 
-        /* Error Message */
         .alert-danger {
             margin-bottom: 15px;
-            font-size: 14px;
+            font-size: 18px;
         }
 
-        /* Form Inputs Styling */
         .form-card .form-control {
             border-radius: 5px;
             padding: 12px 15px;
@@ -42,13 +40,13 @@ body {
         }
 
         .form-card .form-control:focus {
-            border-color: #6f42c1;
-            box-shadow: 0 0 5px rgba(111, 66, 193, 0.5);
+            border-color: #ebb24a;
+            box-shadow: 0 0 5px #f5c46a;
         }
 
         .form-card .btn {
             width: 100%;
-            background-color: #6f42c1;
+            background-color: #ebb24a;
             color: white;
             border: none;
             border-radius: 5px;
@@ -59,21 +57,22 @@ body {
         }
 
         .form-card .btn:hover {
-            background-color: #5a33a5;
+            background-color: #ebb24a;
             transform:scale(1.01);
         }
 
         .form-card .btn:focus {
             outline: none;
             background-color: #5a33a5;
+            color: wheat;
         }
 
         
         .form-card .input-group-text {
-            background-color: #6f42c1;
+            background-color: #ebb24a;
             color: white;
             border-radius: 5px 0 0 5px;
-            padding: 12px; 
+            padding: 11px; 
         }
 
         .input-group-text i{
@@ -83,12 +82,12 @@ body {
         .form-card .input-group .form-control {
             border-left: none;
             border-radius: 5px;
-            padding-left: 2px; 
+            padding-left: 12px; 
         }
 
 
         .form-card .input-group .form-control::placeholder {
-            padding-left: 5px; 
+            padding-left: 2px; 
         }
 
         span{
