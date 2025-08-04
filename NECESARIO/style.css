@@ -1,74 +1,88 @@
- body {
+body {
+            background-image: url('awad.gif'); /* Replace with your image */
+            background-size: cover;
+            background-position: center;
             height: 100vh;
+            margin: 0;
             display: flex;
-            align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-            font-family: 'Roboto', sans-serif;
+            align-items: center;
+            font-family: Arial, sans-serif;
         }
 
+        /* Form Card Styling */
         .form-card {
-            width: 25vw;
-            max-width: 400px;
-            background-color: #fff;
-            padding: 40px 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            animation: slideUp 0.5s ease-out;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
         }
 
+        /* Header Styling */
         .form-card h1 {
-            color: #2575fc;
-            font-size: 28px;
-            margin-bottom: 30px;
-        }
-
-        .form-control {
-            border-radius: 30px;
-            border: 1px solid #ccc;
-            padding: 10px 20px;
-            font-size: 16px;
             margin-bottom: 20px;
-            transition: all 0.3s ease;
+            color: #4B4B4B;
         }
 
-        .form-control:focus {
-            border-color: #2575fc;
-            box-shadow: 0 0 5px rgba(37, 117, 252, 0.7);
+        /* Error Message */
+        .alert-danger {
+            margin-bottom: 15px;
+            font-size: 14px;
         }
 
-        .btn {
+        /* Form Inputs Styling */
+        .form-card .form-control {
+            border-radius: 5px;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            margin-bottom: 15px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-card .form-control:focus {
+            border-color: #6f42c1;
+            box-shadow: 0 0 5px rgba(111, 66, 193, 0.5);
+        }
+
+        .form-card .btn {
             width: 100%;
-            border-radius: 30px;
-            padding: 12px;
-            background-color: #2575fc;
+            background-color: #6f42c1;
+            color: white;
             border: none;
-            color: #fff;
+            border-radius: 5px;
+            padding: 12px 20px;
             font-size: 16px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        .btn:hover {
-            background-color: #1d65e5;
+        .form-card .btn:hover {
+            background-color: #5a33a5;
+            transform:scale(1.01);
         }
 
-/*        
-        @keyframes slideUp {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .form-card .btn:focus {
+            outline: none;
+            background-color: #5a33a5;
         }
 
-        
-        @media (max-width: 600px) {
-            .form-card {
-                width: 80vw;
-                padding: 30px 20px;
-            }
-        } */
+        /* Icon Styling */
+        .form-card .input-group-text {
+            background-color: #6f42c1;
+            color: white;
+            border-radius: 5px 0 0 5px;
+            padding: 10px; 
+        }
+
+        .form-card .input-group .form-control {
+            border-left: none;
+            border-radius: 5px;
+            padding-left: 3px; 
+        }
+
+
+        .form-card .input-group .form-control::placeholder {
+            padding-left: 1px; 
+        }
