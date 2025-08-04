@@ -53,6 +53,7 @@
             <button type="submit" name="button" class="btn mb-3">Login</button>
             <p class="text-center">You dont have account yet? <a href="">Register</a></p>
             <hr>
+            <p>or</p>
         </form>
     </div>
 
