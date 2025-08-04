@@ -68,21 +68,29 @@ body {
             background-color: #5a33a5;
         }
 
-        /* Icon Styling */
+        
         .form-card .input-group-text {
             background-color: #6f42c1;
             color: white;
             border-radius: 5px 0 0 5px;
-            padding: 10px; 
+            padding: 12px; 
+        }
+
+        .input-group-text i{
+            padding: 5px;
         }
 
         .form-card .input-group .form-control {
             border-left: none;
             border-radius: 5px;
-            padding-left: 3px; 
+            padding-left: 2px; 
         }
 
 
         .form-card .input-group .form-control::placeholder {
-            padding-left: 1px; 
+            padding-left: 5px; 
+        }
+
+        span{
+            height: 50%;
         }
