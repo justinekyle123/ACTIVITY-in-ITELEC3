@@ -1,4 +1,4 @@
-body {
+ body {
             background-image: url('awad.gif'); /* Replace with your image */
             background-size: cover;
             background-position: center;
@@ -31,7 +31,7 @@ body {
         }
 
         .form-card a{
-            color: black;
+            color: orangered;
             text-decoration: none;
         }
         hr{
@@ -70,9 +70,9 @@ body {
         }
 
         .form-card .btn:hover {
-            background-color: black;
+            background-color: white;
             transform:scale(1.01);
-            color: white;
+            color: black;
         }
 
         .form-card .btn:focus {
