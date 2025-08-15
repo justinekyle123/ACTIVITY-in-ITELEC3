@@ -7,10 +7,14 @@
 </head>
 <body>
 
-<div>
-	<form method="post">
-		
-	</form>
+<div class="container">
+	<div>	
+		<form method="post">
+			<div class="mb-3">
+				<input type="text" name="" class="form-control" placeholder="Name" required="">
+			</div>
+		</form>
+	</div>
 </div>
 
 
