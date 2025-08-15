@@ -41,7 +41,11 @@
 </nav>
    
     <!---------------------------------------------------- Main Content----------------------------------------- -->
-   
+    
+    <div class="container mt-3">
+        <a href="add.php" class="btn btn-primary">Add Student</a>
+    </div>
+
 
     <style>
        
