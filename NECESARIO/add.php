@@ -19,7 +19,7 @@
         .form-container {
             background-color: white;
             border-radius: 10px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             padding: 30px;
         }
         .form-title {
@@ -66,6 +66,7 @@
 <div class="container">
     <div class="form-container">
         <h2 class="form-title">Full Student Registration</h2>
+		<div class="section-divider"></div>
         <form id="studentForm" action="insert_student.php" method="POST" enctype="multipart/form-data" class="row g-3">
             
             <!-- Personal Information Section -->
@@ -73,7 +74,7 @@
                 <h5 class="section-title">Personal Information</h5>
             </div>
             
-            <div class="col-md-4">
+            <div class="col-md-4 ">
                 <label class="form-label">Photo</label>
                 <input type="file" name="photo" id="photoInput" class="form-control" accept="image/*" required>
                 <small class="text-muted">Max size: 2MB (JPG, PNG only)</small>
@@ -269,7 +270,7 @@
 
             <div class="col-12">
                 <label class="form-label">Skills</label>
-                <textarea name="skills" class="form-control" placeholder="List your skills separated by commas"></textarea>
+                <textarea name="skills" class="form-control" placeholder="List your skills"></textarea>
             </div>
 
             <!-- Submit Button -->
