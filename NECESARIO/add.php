@@ -1,3 +1,55 @@
+<?php
+
+include 'connection.php';
+
+if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+     $name = $_POST['name'];
+    $date = $_POST['date'];
+    $gender = $_POST['gender'];
+    $nickname = $_POST['nickname'];
+    $present_address = $_POST['present_address'];
+    $permanent_address = $_POST['permanent_address'];
+    $place_of_birth = $_POST['place_of_birth'];
+    $contact_no = $_POST['contact_no'];
+    $date_of_birth = $_POST['date_of_birth'];
+    $email_address = $_POST['email_address'];
+    $age = $_POST['age'];
+    $religion = $_POST['religion'];
+    $citizenship = $_POST['citizenship'];
+    $civil_status = $_POST['civil_status'];
+    $weight = $_POST['weight'];
+    $height = $_POST['height'];
+    $language_spoken = $_POST['language_spoken'];
+    $occupation = $_POST['occupation'];
+    $father_name = $_POST['father_name'];
+    $father_occupation = $_POST['father_occupation'];
+    $mother_name = $_POST['mother_name'];
+    $mother_occupation = $_POST['mother_occupation'];
+    $emergency_contact_person = $_POST['emergency_contact_person'];
+    $emergency_address = $_POST['emergency_address'];
+    $emergency_relationship = $_POST['emergency_relationship'];
+    $emergency_contact_no = $_POST['emergency_contact_no'];
+    $elementary_school = $_POST['elementary_school'];
+    $elementary_years_attended = $_POST['elementary_years_attended'];
+    $high_school = $_POST['high_school'];
+    $high_school_years_attended = $_POST['high_school_years_attended'];
+    $skills = $_POST['skills'];
+
+    $stmt->prepare("insert INTO students ( Name, Date, Gender, Nickname, Present_address, Permanent_address, Place_of_birth, Contact_no, Date_of_birth, Email_address, Age, Religion, Citizenship, Civil_status, Weight, Height, Language_spoken, Occupation, Father_name, Father_occupation, Mother_name, Mother_occupation, Emergency_contact_person, Emergency_address, Emergency_relationship, Emergency_contact_no, Elementary_school, Elementary_years_attended, High_school, High_school_years_attended, Skills) 
+        VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("ssssssssssisssddssssssssssssssss",
+        $name, $date, $gender, $nickname, $present_address, $permanent_address, $place_of_birth, $contact_no, $date_of_birth, $email_address, $age, $religion, $citizenship, $civil_status, $weight, $height, $language_spoken, $occupation, $father_name, $father_occupation, $mother_name, $mother_occupation, $emergency_contact_person, $emergency_address, $emergency_relationship, $emergency_contact_no, $elementary_school, $elementary_years_attended, $high_school, $high_school_years_attended, $skills);
+    
+        if($stmt->execute()){
+            echo 'Success';
+        }else{
+            echo "❌ Error: " . $stmt->error;
+        }
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
