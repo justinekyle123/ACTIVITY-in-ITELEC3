@@ -36,18 +36,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $high_school_years_attended = $_POST['high_school_years_attended'];
     $skills = $_POST['skills'];
 
-    $stmt->prepare("insert INTO students ( Name, Date, Gender, Nickname, Present_address, Permanent_address, Place_of_birth, Contact_no, Date_of_birth, Email_address, Age, Religion, Citizenship, Civil_status, Weight, Height, Language_spoken, Occupation, Father_name, Father_occupation, Mother_name, Mother_occupation, Emergency_contact_person, Emergency_address, Emergency_relationship, Emergency_contact_no, Elementary_school, Elementary_years_attended, High_school, High_school_years_attended, Skills) 
-        VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-    $stmt->bind_param("ssssssssssisssddssssssssssssssss",
-        $name, $date, $gender, $nickname, $present_address, $permanent_address, $place_of_birth, $contact_no, $date_of_birth, $email_address, $age, $religion, $citizenship, $civil_status, $weight, $height, $language_spoken, $occupation, $father_name, $father_occupation, $mother_name, $mother_occupation, $emergency_contact_person, $emergency_address, $emergency_relationship, $emergency_contact_no, $elementary_school, $elementary_years_attended, $high_school, $high_school_years_attended, $skills);
-    
-        if($stmt->execute()){
-            echo 'Success';
-        }else{
-            echo "❌ Error: " . $stmt->error;
-        }
+    $sql = "INSERT INTO students 
+    (Name, Date, Gender, Nickname, Present_address, Permanent_address, Place_of_birth, Contact_no, Date_of_birth, Email_address, Age, Religion, Citizenship, Civil_status, Weight, Height, Language_spoken, Occupation, Father_name, Father_occupation, Mother_name, Mother_occupation, Emergency_contact_person, Emergency_address, Emergency_relationship, Emergency_contact_no, Elementary_school, Elementary_years_attended, High_school, High_school_years_attended, Skills)
+    VALUES 
+    ( '$name', '$date', '$gender', '$nickname', '$present_address', '$permanent_address', '$place_of_birth', '$contact_no', '$date_of_birth', '$email_address', '$age', '$religion', '$citizenship', '$civil_status', '$weight', '$height', '$language_spoken', '$occupation', '$father_name', '$father_occupation', '$mother_name', '$mother_occupation', '$emergency_contact_person', '$emergency_address', '$emergency_relationship', '$emergency_contact_no', '$elementary_school', '$elementary_years_attended', '$high_school', '$high_school_years_attended', '$skills')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "New student record added successfully!";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
+    $conn->close();
+}
 ?>
 
 <!DOCTYPE html>
@@ -119,7 +120,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <div class="form-container">
         <h2 class="form-title">Full Student Registration</h2>
 		<div class="section-divider"></div>
-        <form id="studentForm" action="insert_student.php" method="POST" enctype="multipart/form-data" class="row g-3">
+        <form id="studentForm" action="add.php" method="POST" enctype="multipart/form-data" class="row g-3">
             
             <!-- Personal Information Section -->
             <div class="col-12">
@@ -332,113 +333,6 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         </form>
     </div>
 </div>
-
-<script>
-    // Photo preview functionality
-    document.getElementById('photoInput').addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(event) {
-                const preview = document.getElementById('previewImage');
-                preview.src = event.target.result;
-                document.getElementById('photoPreview').style.display = 'block';
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-
-    // Form validation
-    document.getElementById("studentForm").addEventListener("submit", function(e) {
-        // Validate photo
-        const fileInput = document.querySelector('input[name="photo"]');
-        const file = fileInput.files[0];
-        
-        if (file) {
-            const allowedTypes = ["image/jpeg", "image/png"];
-            const maxSize = 2 * 1024 * 1024; // 2MB
-            
-            if (!allowedTypes.includes(file.type)) {
-                e.preventDefault();
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Invalid File Type',
-                    text: 'Only JPG and PNG images are allowed!'
-                });
-                return;
-            }
-            
-            if (file.size > maxSize) {
-                e.preventDefault();
-                Swal.fire({
-                    icon: 'error',
-                    title: 'File Too Large',
-                    text: 'Maximum file size is 2MB!'
-                });
-                return;
-            }
-        }
-        
-        // Validate contact numbers
-        const contactNo = document.querySelector('input[name="contact_no"]').value;
-        const emergencyContactNo = document.querySelector('input[name="emergency_contact_no"]').value;
-        
-        if (!/^[\d\s\-+]+$/.test(contactNo)) {
-            e.preventDefault();
-            Swal.fire({
-                icon: 'error',
-                title: 'Invalid Contact Number',
-                text: 'Please enter a valid phone number!'
-            });
-            return;
-        }
-        
-        if (!/^[\d\s\-+]+$/.test(emergencyContactNo)) {
-            e.preventDefault();
-            Swal.fire({
-                icon: 'error',
-                title: 'Invalid Emergency Contact Number',
-                text: 'Please enter a valid phone number!'
-            });
-            return;
-        }
-        
-        // Validate email
-        const email = document.querySelector('input[name="email_address"]').value;
-        if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            e.preventDefault();
-            Swal.fire({
-                icon: 'error',
-                title: 'Invalid Email',
-                text: 'Please enter a valid email address!'
-            });
-            return;
-        }
-        
-        // If all validations pass, show success message
-        Swal.fire({
-            icon: 'success',
-            title: 'Form Submitted',
-            text: 'Student information is being processed...',
-            timer: 2000,
-            showConfirmButton: false
-        });
-    });
-
-    // Calculate age from date of birth
-    document.querySelector('input[name="date_of_birth"]').addEventListener('change', function() {
-        const dob = new Date(this.value);
-        if (!isNaN(dob.getTime())) {
-            const today = new Date();
-            let age = today.getFullYear() - dob.getFullYear();
-            const monthDiff = today.getMonth() - dob.getMonth();
-            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < dob.getDate())) {
-                age--;
-            }
-            document.querySelector('input[name="age"]').value = age;
-        }
-    });
-</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
