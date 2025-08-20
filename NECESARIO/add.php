@@ -161,7 +161,12 @@ textarea:focus, input:focus, select:focus {
     border-radius: 50px;
     transition: all 0.3s ease-in-out;
 }
-
+#btn:hover{
+    background-color: #fc0000ff;
+    border-color: #ff0000ff;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(142, 56, 56, 0.3);
+}
 .btn-primary:hover {
     background-color: #388e3c;
     border-color: #388e3c;
