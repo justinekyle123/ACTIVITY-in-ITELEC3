@@ -32,35 +32,67 @@
         <?php
         include 'connection.php';
 
-        $sql = "SELECT * FROM students ORDER BY Student_id DESC";
+        $limit = 5;
+
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        if ($page < 1) $page = 1;
+
+        $offset = ($page - 1) * $limit;
+
+        $countRes = $conn->query("SELECT COUNT(*) AS total FROM students");
+        $countRow = $countRes->fetch_assoc();
+        $total_students = $countRow['total'];
+        $total_pages = ceil($total_students / $limit);
+      
+        $sql = "SELECT * FROM students ORDER BY Student_id ASC LIMIT $limit OFFSET $offset";
         $result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $row['Student_id'] . "</td>";
-                echo "<td>";
-                if (!empty($row['Photo'])) {
-                    echo "<img src='" . $row['Photo'] . "' width='50' height='50' style='object-fit:cover; border-radius:50%;'>";
-                } else {
-                    echo "No Photo";
-                }
-                echo "</td>";
-                echo "<td>" . $row['Name'] . "</td>";
-                echo "<td>" . $row['Gender'] . "</td>";
-                echo "<td>" . $row['Contact_no'] . "</td>";
-                echo "<td>" . $row['Email_address'] . "</td>";
-                echo "<td>" . $row['Age'] . "</td>";
-                echo "<td>
-                        <a href='edit_student.php?id=" . $row['Student_id'] . "' class='btn btn-sm btn-primary'>Edit</a>
-                        <a href='#' onclick='confirmDelete(" . $row['Student_id'] . ")' class='btn btn-sm btn-danger'>Delete</a>
-                    </td>";
-                echo "</tr>";
-            }
+         if ($result->num_rows > 0) {
+         while($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $row['Student_id'] . "</td>";
+        echo "<td>";
+        if (!empty($row['Photo'])) {
+            echo "<img src='" . $row['Photo'] . "' width='50' height='50' style='object-fit:cover; border-radius:50%;'>";
         } else {
-            echo "<tr><td colspan='8' class='text-center'>No students found</td></tr>";
+            echo "No Photo";
         }
-        ?>
+        echo "</td>";
+        echo "<td>" . $row['Name'] . "</td>";
+        echo "<td>" . $row['Gender'] . "</td>";
+        echo "<td>" . $row['Contact_no'] . "</td>";
+        echo "<td>" . $row['Email_address'] . "</td>";
+        echo "<td>" . $row['Age'] . "</td>";
+        echo "<td>
+                <a href='edit_student.php?id=" . $row['Student_id'] . "' class='btn btn-sm btn-primary'>Edit</a>
+                <a href='#' onclick='confirmDelete(" . $row['Student_id'] . ")' class='btn btn-sm btn-danger'>Delete</a>
+            </td>";
+        echo "</tr>";
+    }
+} else {
+    echo "<tr><td colspan='8' class='text-center'>No students found</td></tr>";
+}
+
+ ?>
+<!-- Pagination Links -->
+ <nav>
+  <ul class="pagination">
+    <?php if ($page > 1): ?>
+      <li class="page-item"><a class="page-link" href="?page=<?php echo $page-1; ?>">Previous</a></li>
+    <?php endif; ?>
+
+    <?php for ($i = 1; $i <= $total_pages; $i++): ?>
+      <li class="page-item <?php echo ($i == $page) ? 'active' : ''; ?>">
+        <a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+      </li>
+    <?php endfor; ?>
+
+    <?php if ($page < $total_pages): ?>
+      <li class="page-item"><a class="page-link" href="?page=<?php echo $page+1; ?>">Next</a></li>
+    <?php endif; ?>
+  </ul>
+</nav>
+
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
 function confirmDelete(userId) {
