@@ -64,58 +64,92 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 20px;
-        }
-        .form-container {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-        }
-        .form-title {
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
-        .form-label {
-            font-weight: 500;
-            color: #495057;
-            margin-bottom: 5px;
-        }
-        .btn-primary {
-            background-color: #3498db;
-            border-color: #3498db;
-            padding: 10px 25px;
-            font-weight: 500;
-            transition: all 0.3s;
-        }
-        .btn-primary:hover {
-            background-color: #2980b9;
-            border-color: #2980b9;
-            transform: translateY(-2px);
-        }
-        textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-        .section-divider {
-            border-top: 2px solid #e9ecef;
-            margin: 25px 0;
-            padding-top: 15px;
-        }
-        .section-title {
-            color: #3498db;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
+       body {
+    background: linear-gradient(135deg, #eafaf1, #fdfcf4);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #3c3c3c;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.form-container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    border: 2px solid #d4e9d4;
+    box-shadow: 0 6px 18px rgba(100, 150, 100, 0.2);
+    padding: 30px;
+    position: relative;
+}
+
+.form-container::before {
+    content: "🌿";
+    font-size: 2rem;
+    position: absolute;
+    top: -15px;
+    left: -15px;
+}
+
+.form-container::after {
+    content: "🌾";
+    font-size: 2rem;
+    position: absolute;
+    bottom: -15px;
+    right: -15px;
+}
+
+.form-title {
+    color: #2e7d32;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 1.8rem;
+    border-bottom: 3px solid #a5d6a7;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.section-title {
+    color: #4caf50;
+    font-weight: 600;
+    margin-bottom: 15px;
+    border-left: 5px solid #81c784;
+    padding-left: 10px;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #2e7d32;
+}
+
+textarea, input, select {
+    border-radius: 10px !important;
+    border: 1.5px solid #c8e6c9 !important;
+}
+
+textarea:focus, input:focus, select:focus {
+    border-color: #66bb6a !important;
+    box-shadow: 0 0 8px rgba(102, 187, 106, 0.5) !important;
+}
+
+.btn-primary {
+    background-color: #66bb6a;
+    border-color: #66bb6a;
+    padding: 10px 25px;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #388e3c;
+    border-color: #388e3c;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(56, 142, 60, 0.3);
+}
     </style>
 </head>
 <body>
