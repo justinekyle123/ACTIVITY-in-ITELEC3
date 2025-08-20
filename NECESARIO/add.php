@@ -4,6 +4,13 @@ include 'connection.php';
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
 
+    
+    $upload_dir = "upload/";
+    $photo_name = time(). "_" . basename($_FILES['photo']['name']);
+    $target_file = $upload_dir . $photo_name;
+
+    if(move_uploaded_file($_FILES['photo']['tmp_name'],$target_file)){
+        
      $name = $_POST['name'];
     $date = $_POST['date'];
     $gender = $_POST['gender'];
@@ -36,11 +43,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $high_school_years_attended = $_POST['high_school_years_attended'];
     $skills = $_POST['skills'];
 
-    $sql = "INSERT INTO students 
-    (Name, Date, Gender, Nickname, Present_address, Permanent_address, Place_of_birth, Contact_no, Date_of_birth, Email_address, Age, Religion, Citizenship, Civil_status, Weight, Height, Language_spoken, Occupation, Father_name, Father_occupation, Mother_name, Mother_occupation, Emergency_contact_person, Emergency_address, Emergency_relationship, Emergency_contact_no, Elementary_school, Elementary_years_attended, High_school, High_school_years_attended, Skills)
-    VALUES 
-    ( '$name', '$date', '$gender', '$nickname', '$present_address', '$permanent_address', '$place_of_birth', '$contact_no', '$date_of_birth', '$email_address', '$age', '$religion', '$citizenship', '$civil_status', '$weight', '$height', '$language_spoken', '$occupation', '$father_name', '$father_occupation', '$mother_name', '$mother_occupation', '$emergency_contact_person', '$emergency_address', '$emergency_relationship', '$emergency_contact_no', '$elementary_school', '$elementary_years_attended', '$high_school', '$high_school_years_attended', '$skills')";
+    
 
+    $sql = "INSERT INTO students 
+    (Photo,Name, Date, Gender, Nickname, Present_address, Permanent_address, Place_of_birth, Contact_no, Date_of_birth, Email_address, Age, Religion, Citizenship, Civil_status, Weight, Height, Language_spoken, Occupation, Father_name, Father_occupation, Mother_name, Mother_occupation, Emergency_contact_person, Emergency_address, Emergency_relationship, Emergency_contact_no, Elementary_school, Elementary_years_attended, High_school, High_school_years_attended, Skills)
+    VALUES 
+    ( '$target_file','$name', '$date', '$gender', '$nickname', '$present_address', '$permanent_address', '$place_of_birth', '$contact_no', '$date_of_birth', '$email_address', '$age', '$religion', '$citizenship', '$civil_status', '$weight', '$height', '$language_spoken', '$occupation', '$father_name', '$father_occupation', '$mother_name', '$mother_occupation', '$emergency_contact_person', '$emergency_address', '$emergency_relationship', '$emergency_contact_no', '$elementary_school', '$elementary_years_attended', '$high_school', '$high_school_years_attended', '$skills')";
 
 
     if ($conn->query($sql) === TRUE) {
@@ -50,6 +58,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
+}
 
     $conn->close();
 }
@@ -158,6 +167,7 @@ textarea:focus, input:focus, select:focus {
     <div class="form-container">
         <h2 class="form-title">Full Student Registration</h2>
 		<div class="section-divider"></div>
+
         <form id="studentForm" action="add.php" method="POST" enctype="multipart/form-data" class="row g-3">
           
             <!-- Personal Information Section -->
