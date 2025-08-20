@@ -14,6 +14,7 @@
     
 <div class="container">
     <h2 class="mb-4">Student List</h2>
+    <a href="add.php" class="btn btn-warning mb-1">Add Student</a>
     <table class="table table-bordered table-hover">
         <thead class="table-dark">
             <tr>
@@ -52,20 +53,35 @@
                 echo "<td>" . $row['Age'] . "</td>";
                 echo "<td>
                         <a href='edit_student.php?id=" . $row['Student_id'] . "' class='btn btn-sm btn-primary'>Edit</a>
-                        <a href='delete_student.php?id=" . $row['Student_id'] . "' class='btn btn-sm btn-danger'>Delete</a>
-                      </td>";
+                        <a href='#' onclick='confirmDelete(" . $row['Student_id'] . ")' class='btn btn-sm btn-danger'>Delete</a>
+                    </td>";
                 echo "</tr>";
             }
         } else {
             echo "<tr><td colspan='8' class='text-center'>No students found</td></tr>";
         }
         ?>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+function confirmDelete(userId) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "This action cannot be undone!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#3085d6',
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'Cancel'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // redirect to PHP delete page
+            window.location = 'delete_student.php?id=' + userId;
+        }
+    });
+}
+</script>
 
-
-    <style>
-       
-
-    </style>
     
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
