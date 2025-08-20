@@ -41,8 +41,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     VALUES 
     ( '$name', '$date', '$gender', '$nickname', '$present_address', '$permanent_address', '$place_of_birth', '$contact_no', '$date_of_birth', '$email_address', '$age', '$religion', '$citizenship', '$civil_status', '$weight', '$height', '$language_spoken', '$occupation', '$father_name', '$father_occupation', '$mother_name', '$mother_occupation', '$emergency_contact_person', '$emergency_address', '$emergency_relationship', '$emergency_contact_no', '$elementary_school', '$elementary_years_attended', '$high_school', '$high_school_years_attended', '$skills')";
 
+    $success = '';
+
     if ($conn->query($sql) === TRUE) {
-        echo "New student record added successfully!";
+        echo"<script>
+                alert('Successfully Added');
+            </script>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
@@ -121,7 +125,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         <h2 class="form-title">Full Student Registration</h2>
 		<div class="section-divider"></div>
         <form id="studentForm" action="add.php" method="POST" enctype="multipart/form-data" class="row g-3">
-            
+          
             <!-- Personal Information Section -->
             <div class="col-12">
                 <h5 class="section-title">Personal Information</h5>
