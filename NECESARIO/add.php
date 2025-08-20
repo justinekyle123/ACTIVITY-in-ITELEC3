@@ -153,6 +153,15 @@ textarea:focus, input:focus, select:focus {
     transition: all 0.3s ease-in-out;
 }
 
+#btn{
+    background-color: #eb0f0fff;
+    border-color: #cce9cdff;
+    padding: 10px 25px;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+}
+
 .btn-primary:hover {
     background-color: #388e3c;
     border-color: #388e3c;
@@ -165,6 +174,7 @@ textarea:focus, input:focus, select:focus {
 
 <div class="container">
     <div class="form-container">
+        <a href="home.php" class="btn btn-primary" id="btn" style="float: right">Cancel</a><br>
         <h2 class="form-title">Full Student Registration</h2>
 		<div class="section-divider"></div>
 
