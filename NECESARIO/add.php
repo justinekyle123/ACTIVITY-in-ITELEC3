@@ -41,7 +41,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     VALUES 
     ( '$name', '$date', '$gender', '$nickname', '$present_address', '$permanent_address', '$place_of_birth', '$contact_no', '$date_of_birth', '$email_address', '$age', '$religion', '$citizenship', '$civil_status', '$weight', '$height', '$language_spoken', '$occupation', '$father_name', '$father_occupation', '$mother_name', '$mother_occupation', '$emergency_contact_person', '$emergency_address', '$emergency_relationship', '$emergency_contact_no', '$elementary_school', '$elementary_years_attended', '$high_school', '$high_school_years_attended', '$skills')";
 
-    $success = '';
+
 
     if ($conn->query($sql) === TRUE) {
         echo"<script>
