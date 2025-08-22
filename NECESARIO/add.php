@@ -16,7 +16,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $gender = $_POST['gender'];
     // $nickname = $_POST['nickname'];
     // $present_address = $_POST['present_address'];
-    $permanent_address = $_POST['permanent_address'];
+    $address = $_POST['address'];
     $place_of_birth = $_POST['place_of_birth'];
     $contact_no = $_POST['contact_no'];
     $date_of_birth = $_POST['date_of_birth'];
@@ -29,9 +29,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     
 
     $sql = "INSERT INTO students 
-    (Photo,Name, Date, Gender, Permanent_address, Place_of_birth, Contact_no, Date_of_birth, Email_address, Age, Religion, Citizenship, Civil_status )
+    (Photo,Name, Date, Gender, address, Place_of_birth, Contact_no, Date_of_birth, Email_address, Age, Religion, Citizenship, Civil_status )
     VALUES 
-    ( '$target_file','$name', '$date', '$gender', '$permanent_address', '$place_of_birth', '$contact_no', '$date_of_birth', '$email_address', '$age', '$religion', '$citizenship', '$civil_status')";
+    ( '$target_file','$name', '$date', '$gender', '$address', '$place_of_birth', '$contact_no', '$date_of_birth', '$email_address', '$age', '$religion', '$citizenship', '$civil_status')";
 
 
     if ($conn->query($sql) === TRUE) {
@@ -193,7 +193,7 @@ textarea:focus, input:focus, select:focus {
                 <input type="date" name="date" class="form-control" required>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <label class="form-label">Gender</label>
                 <select name="gender" class="form-select" required>
                     <option value="">-- Select --</option>
@@ -203,12 +203,12 @@ textarea:focus, input:focus, select:focus {
                 </select>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <label class="form-label">Date of Birth</label>
                 <input type="date" name="date_of_birth" class="form-control" required>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <label class="form-label">Age</label>
                 <input type="number" name="age" class="form-control" min="5" max="99" required>
             </div>
@@ -216,7 +216,7 @@ textarea:focus, input:focus, select:focus {
 
             <div class="col-md-12">
                 <label class="form-label">Address</label>
-                <textarea name="permanent_address" class="form-control"></textarea>
+                <textarea name="address" class="form-control"></textarea>
             </div>
 
             <div class="col-md-4">
