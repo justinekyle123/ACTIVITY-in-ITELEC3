@@ -25,24 +25,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $religion = $_POST['religion'];
     $citizenship = $_POST['citizenship'];
     $civil_status = $_POST['civil_status'];
-    // $weight = $_POST['weight'];
-    // $height = $_POST['height'];
-    // $language_spoken = $_POST['language_spoken'];
-    // $occupation = $_POST['occupation'];
-    // $father_name = $_POST['father_name'];
-    // $father_occupation = $_POST['father_occupation'];
-    // $mother_name = $_POST['mother_name'];
-    // $mother_occupation = $_POST['mother_occupation'];
-    // $emergency_contact_person = $_POST['emergency_contact_person'];
-    // $emergency_address = $_POST['emergency_address'];
-    // $emergency_relationship = $_POST['emergency_relationship'];
-    // $emergency_contact_no = $_POST['emergency_contact_no'];
-    // $elementary_school = $_POST['elementary_school'];
-    // $elementary_years_attended = $_POST['elementary_years_attended'];
-    // $high_school = $_POST['high_school'];
-    // $high_school_years_attended = $_POST['high_school_years_attended'];
-    // $skills = $_POST['skills'];
-
+   
     
 
     $sql = "INSERT INTO students 
@@ -210,7 +193,7 @@ textarea:focus, input:focus, select:focus {
                 <input type="date" name="date" class="form-control" required>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <label class="form-label">Gender</label>
                 <select name="gender" class="form-select" required>
                     <option value="">-- Select --</option>
@@ -218,11 +201,6 @@ textarea:focus, input:focus, select:focus {
                     <option>Female</option>
                     <option>Other</option>
                 </select>
-            </div>
-
-            <div class="col-md-3">
-                <label class="form-label">Nickname</label>
-                <input type="text" name="nickname" class="form-control">
             </div>
 
             <div class="col-md-3">
@@ -235,13 +213,9 @@ textarea:focus, input:focus, select:focus {
                 <input type="number" name="age" class="form-control" min="5" max="99" required>
             </div>
 
-            <div class="col-md-6">
-                <label class="form-label">Present Address</label>
-                <textarea name="present_address" class="form-control" required></textarea>
-            </div>
 
-            <div class="col-md-6">
-                <label class="form-label">Permanent Address</label>
+            <div class="col-md-12">
+                <label class="form-label">Address</label>
                 <textarea name="permanent_address" class="form-control"></textarea>
             </div>
 
@@ -265,17 +239,17 @@ textarea:focus, input:focus, select:focus {
                 <h5 class="section-title">Additional Information</h5>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <label class="form-label">Religion</label>
                 <input type="text" name="religion" class="form-control">
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <label class="form-label">Citizenship</label>
                 <input type="text" name="citizenship" class="form-control" required>
             </div>
 
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <label class="form-label">Civil Status</label>
                 <select name="civil_status" class="form-select">
                     <option>Single</option>
@@ -285,111 +259,7 @@ textarea:focus, input:focus, select:focus {
                 </select>
             </div>
 
-            <div class="col-md-3">
-                <label class="form-label">Language Spoken</label>
-                <input type="text" name="language_spoken" class="form-control">
-            </div>
-
-            <div class="col-md-3">
-                <label class="form-label">Weight (kg)</label>
-                <input type="number" step="0.01" name="weight" class="form-control" min="20" max="200">
-            </div>
-
-            <div class="col-md-3">
-                <label class="form-label">Height (cm)</label>
-                <input type="number" step="0.01" name="height" class="form-control" min="100" max="250">
-            </div>
-
-            <div class="col-md-3">
-                <label class="form-label">Occupation</label>
-                <input type="text" name="occupation" class="form-control">
-            </div>
-
-            <!-- Family Information Section -->
-            <div class="col-12 section-divider">
-                <h5 class="section-title">Family Information</h5>
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Father's Name</label>
-                <input type="text" name="father_name" class="form-control">
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Father's Occupation</label>
-                <input type="text" name="father_occupation" class="form-control">
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Mother's Name</label>
-                <input type="text" name="mother_name" class="form-control">
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Mother's Occupation</label>
-                <input type="text" name="mother_occupation" class="form-control">
-            </div>
-
-            <!-- Emergency Contact Section -->
-            <div class="col-12 section-divider">
-                <h5 class="section-title">Emergency Contact</h5>
-            </div>
-
-            <div class="col-md-4">
-                <label class="form-label">Emergency Contact Person</label>
-                <input type="text" name="emergency_contact_person" class="form-control" required>
-            </div>
-
-            <div class="col-md-4">
-                <label class="form-label">Emergency Relationship</label>
-                <input type="text" name="emergency_relationship" class="form-control" required>
-            </div>
-
-            <div class="col-md-4">
-                <label class="form-label">Emergency Contact No</label>
-                <input type="tel" name="emergency_contact_no" class="form-control" required>
-            </div>
-
-            <div class="col-12">
-                <label class="form-label">Emergency Address</label>
-                <textarea name="emergency_address" class="form-control" required></textarea>
-            </div>
-
-            <!-- Educational Background Section -->
-            <div class="col-12 section-divider">
-                <h5 class="section-title">Educational Background</h5>
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Elementary School</label>
-                <input type="text" name="elementary_school" class="form-control">
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">Elementary Years Attended</label>
-                <input type="text" name="elementary_years_attended" class="form-control" placeholder="e.g. 2010-2016">
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">High School</label>
-                <input type="text" name="high_school" class="form-control">
-            </div>
-
-            <div class="col-md-6">
-                <label class="form-label">High School Years Attended</label>
-                <input type="text" name="high_school_years_attended" class="form-control" placeholder="e.g. 2016-2020">
-            </div>
-
-            <!-- Skills Section -->
-            <div class="col-12 section-divider">
-                <h5 class="section-title">Skills & Talents</h5>
-            </div>
-
-            <div class="col-12">
-                <label class="form-label">Skills</label>
-                <textarea name="skills" class="form-control" placeholder="List your skills"></textarea>
-            </div>
-
+           
             <!-- Submit Button -->
             <div class="col-12 text-center mt-4">
                 <button type="submit" name="submit" class="btn btn-primary px-4 py-2">Save Student</button>
