@@ -20,7 +20,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $place_of_birth = $_POST['place_of_birth'];
     $contact_no = $_POST['contact_no'];
     $date_of_birth = $_POST['date_of_birth'];
-    $email_address = $_POST['email_address'];
+    $email = $_POST['email'];
     $age = $_POST['age'];
     $religion = $_POST['religion'];
     $citizenship = $_POST['citizenship'];
@@ -29,7 +29,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     
 
     $sql = "INSERT INTO students 
-    (Photo,Name, Date, Gender, address, Place_of_birth, Contact_no, Date_of_birth, Email_address, Age, Religion, Citizenship, Civil_status )
+    (Photo,Name, Date, Gender, address, Place_of_birth, Contact_no, Date_of_birth, Email, Age, Religion, Citizenship, Civil_status )
     VALUES 
     ( '$target_file','$name', '$date', '$gender', '$address', '$place_of_birth', '$contact_no', '$date_of_birth', '$email_address', '$age', '$religion', '$citizenship', '$civil_status')";
 
@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     if ($conn->query($sql) === TRUE) {
         echo"<script>
                 alert('Successfully Added');
-
+                window.location.href='home.php';
             </script>";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
@@ -231,7 +231,7 @@ textarea:focus, input:focus, select:focus {
 
             <div class="col-md-4">
                 <label class="form-label">Email Address</label>
-                <input type="email" name="email_address" class="form-control" required>
+                <input type="email" name="email" class="form-control" required>
             </div>
 
             <!-- Additional Information Section -->

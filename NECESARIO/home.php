@@ -49,7 +49,7 @@
          if ($result->num_rows > 0) {
          while($row = $result->fetch_assoc()) {
         echo "<tr>";
-        echo "<td>" . $row['Student_id'] . "</td>";
+        echo "<td>" . $row['student_id'] . "</td>";
         echo "<td>";
         if (!empty($row['Photo'])) {
             echo "<img src='" . $row['Photo'] . "' width='50' height='50' style='object-fit:cover; border-radius:50%;'>";
@@ -60,11 +60,11 @@
         echo "<td>" . $row['Name'] . "</td>";
         echo "<td>" . $row['Gender'] . "</td>";
         echo "<td>" . $row['Contact_no'] . "</td>";
-        echo "<td>" . $row['Email_address'] . "</td>";
+        echo "<td>" . $row['Email'] . "</td>";
         echo "<td>" . $row['Age'] . "</td>";
         echo "<td>
-                <a href='edit_student.php?id=" . $row['Student_id'] . "' class='btn btn-sm btn-primary'>Edit</a>
-                <a href='#' onclick='confirmDelete(" . $row['Student_id'] . ")' class='btn btn-sm btn-danger'>Delete</a>
+                <a href='edit_student.php?id=" . $row['student_id'] . "' class='btn btn-sm btn-primary'>Edit</a>
+                <a href='#' onclick='confirmDelete(" . $row['student_id'] . ")' class='btn btn-sm btn-danger'>Delete</a>
             </td>";
         echo "</tr>";
     }
