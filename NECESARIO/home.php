@@ -19,7 +19,8 @@
     .header img {
       width: 80px;
       margin-bottom: 10px;
-      animation: bounce 2s infinite;
+      border-radius: 50%;
+      animation: bounce 5s infinite;
     }
     .header h2 {
       font-weight: bold;
