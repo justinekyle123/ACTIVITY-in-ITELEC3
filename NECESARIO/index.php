@@ -99,9 +99,6 @@
                                     <div class="input-group">
                                         <input type="password" class="form-control" id="password" name="password" 
                                                placeholder="Enter your password" required>
-                                        <button class="btn btn-outline-secondary" type="button" id="togglePassword">
-                                            <i class="fas fa-eye"></i>
-                                        </button>
                                     </div>
                                 </div>
                                 
@@ -165,7 +162,7 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: black;
+    background: #80adf08f;
     min-height: 100vh;
     overflow-x: hidden;
 }
