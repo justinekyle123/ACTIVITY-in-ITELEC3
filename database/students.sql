@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 22, 2025 at 02:17 AM
+-- Generation Time: Aug 27, 2025 at 04:23 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `students` (
   `student_id` int(11) NOT NULL,
   `Photo` varchar(255) NOT NULL,
   `Name` varchar(100) NOT NULL,
-  `Date` date NOT NULL,
+  `Date` date NOT NULL DEFAULT current_timestamp(),
   `Gender` varchar(25) NOT NULL,
   `Address` varchar(200) NOT NULL,
   `Place_of_Birth` varchar(100) NOT NULL,
