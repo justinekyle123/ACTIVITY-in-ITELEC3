@@ -167,11 +167,13 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
       <div class="col-md-4">
         <label class="form-label">Age</label>
         <input type="number" name="age" class="form-control" min="5" max="99" required>
+        <div class="invalid-feedback">Please enter age</div>
       </div>
 
       <div class="col-md-12">
         <label class="form-label">Address</label>
         <textarea name="address" class="form-control" required></textarea>
+        <div class="invalid-feedback">Please enter you current address</div>
       </div>
 
       <div class="col-md-4">
@@ -182,6 +184,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
       <div class="col-md-4">
         <label class="form-label">Contact No</label>
         <input type="tel" name="contact_no" class="form-control" required>
+        <div class="invalid-feedback">Please enter mobile number</div>
       </div>
 
       <div class="col-md-4">
