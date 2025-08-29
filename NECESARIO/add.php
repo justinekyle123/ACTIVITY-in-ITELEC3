@@ -171,7 +171,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
       <div class="col-md-12">
         <label class="form-label">Address</label>
-        <textarea name="address" class="form-control"></textarea>
+        <textarea name="address" class="form-control" required></textarea>
       </div>
 
       <div class="col-md-4">
@@ -187,6 +187,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
       <div class="col-md-4">
         <label class="form-label">Email Address</label>
         <input type="email" name="email" class="form-control" required>
+        <div class="invalid-feedback">Please enter valid email address</div>
       </div>
 
       <!-- Additional Info -->
@@ -195,8 +196,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
       </div>
 
       <div class="col-md-4">
-        <label class="form-label">Religion</label>
-        <input type="text" name="religion" class="form-control">
+        <label class="form-label" required>Religion</label>
+        <input type="text" name="religion" class="form-control" required>
       </div>
 
       <div class="col-md-4">
@@ -206,7 +207,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
       <div class="col-md-4">
         <label class="form-label">Civil Status</label>
-        <select name="civil_status" class="form-select">
+        <select name="civil_status" class="form-select" required>
           <option>Single</option>
           <option>Married</option>
           <option>Widowed</option>

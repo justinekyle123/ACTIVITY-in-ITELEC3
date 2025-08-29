@@ -35,6 +35,7 @@
         <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="container">
     <div class="login-container">
         <div class="container-fluid h-100">
             <div class="row h-100">
@@ -136,7 +137,7 @@
             </div>
         </div>
     </div>
-  
+</div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <style>
@@ -165,6 +166,9 @@ body {
     background: linear-gradient(135deg, #f0f9ff, #cbebff);
     min-height: 100vh;
     overflow-x: hidden;
+}
+.container{
+    width: 50%;
 }
 
 .login-container {
@@ -199,7 +203,7 @@ body {
     text-align: center;
     z-index: 2;
     position: relative;
-    padding: 2rem;
+    padding: 1rem;
 }
 
 .school-logo-large {
@@ -249,7 +253,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 2rem 1rem;
+    padding: 1rem 1rem;
 }
 
 .login-form-container {
