@@ -75,17 +75,51 @@
     .pagination .page-link {
       color: #004085;
     }
+    .img-thumbnail{
+      border-radius:50%;
+      width: 50px;
+      position:absolute;
+      left:1;
+    }
+    
   </style>
 </head>
 <body>
+   <!---------------------------------------------NAVBAR HERE--------------------------------------->
+    <nav class='navbar navbar-expand-lg bg-body-tertiary bg-primary'>
+        <div class="container-fluid">
+          <img src="awad.gif" class="img-thumbnail" alt="...">
+          <a href='#' class='navbar-brand ' style="color:white; margin-left:55px;">Student Management</a>
+        </div>
+    </nav>
+
 
   <div class="container mt-4">
-    <!-- Header -->
+    <!----------------------- Header---------------------------------- -->
     <div class="header">
-      <img src="awad.gif" alt="School Logo">
       <h2><i class="fas fa-school"></i> Student Management System</h2>
-      <p class="text-muted">Manage student records with ease</p>
     </div>
+
+    <!------------CHART-------------------------------------->
+    <div class="row mb-4">
+      <div class="col-md-6">
+         <div class="card shadow-sm p-3">
+            <h6>Student by Gender</h6>
+            <canvas id='genderChart'>
+
+            </canvas>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card shadow-sm p-3">
+          <h6>Students by Civil Status</h6>
+          <canvas id='statusChart'>
+
+          </canvas>
+        </div>
+      </div>
+    </div>
+
 
     <!-- Table -->
     <div class="table-wrapper">
@@ -110,6 +144,19 @@
         <tbody>
           <?php
             include 'connection.php';
+    // chart code-------------------
+    $totalRes = $conn->query("SELECT COUNT(*) AS total from students ");
+    $total_student = $totalRes->fetch_assoc()['total'];
+    $maleRes = $conn->query("SELECT COUNT(*) AS male FROM students WHERE gender='male'");
+    $maleStudents = $maleRes->fetch_assoc()['male'];
+    $genderRes = $conn->query("SELECT gender, COUNT(*) AS count From students GROUP by gender " );
+    $gender_data = [];
+    while($row = $genderRes->fetch_assoc()){
+        $gender_data[$row['gender']] = $row['count'];
+    }
+
+
+    //table code-------------------------------
             $limit = 8;
             $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
             if ($page < 1) $page = 1;
@@ -140,7 +187,8 @@
                 echo "<td>" . $row['Email'] . "</td>";
                 echo "<td>" . $row['Age'] . "</td>";
                 echo "<td>
-                        <a href='edit_student.php?id=" . $row['student_id'] . "' class='btn btn-sm btn-primary'><i class='fas fa-edit'></i> Edit</a>
+                        <a href='view.php?id=" . $row['student_id'] . "' class='btn btn-sm btn-primary'><i class='fas fa-edit'></i> View</a>
+                        <a href='edit_student.php?id=" . $row['student_id'] . "' class='btn btn-sm btn-warning'><i class='fas fa-edit'></i> Edit</a>
                         <a href='#' onclick='confirmDelete(" . $row['student_id'] . ")' class='btn btn-sm btn-danger'><i class='fas fa-trash-alt'></i> Delete</a>
                       </td>";
                 echo "</tr>";
@@ -192,5 +240,21 @@
   </script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<!-----------------------------------ChART Script---------------------------------->
+<script>
+    new Chart(document.gettElementById('genderChart'),{
+      type: 'doughnut',
+      data: {
+        labels: <?php echo json_encode(array_keys($gender_data));?>,
+        datasets: [{
+          data: <?php echo json_encode(array_values($gender_data)); ?>,
+          backgroundColor: ['#007bff','#ffc107','#28a745'] 
+        }]
+      }
+    });
+</script>
+
 </body>
 </html>
